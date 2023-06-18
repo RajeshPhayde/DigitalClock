@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100vw;
+            height: 100vh;
+            background-color: rgb(229, 233, 172);
+        }
+        section{
+            position: absolute;
+            top: 50%;
+            left : 50%;     
+            transform: translate(-50%,-50%);
+            width: 700px;
+            height: auto;
+            padding: 1%;
+            border: solid 2px  black;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        input{
+            width: 150px;
+            height: 150px;
+            font-size: 80px;
+            text-align: center;
+            border: none;
+            background: transparent;
+        }
+        h2{
+            text-align: center;
+        }
+        @media (max-width: 800px){
+            section{
+                width: 500px;
+            }
+            input{
+                width : 70px;
+                font-size: 40px;
+                height: 70px;
+            }
+        }
+        @media (max-width: 550px){
+            section{
+                width: 400px;
+            }
+            input{
+                width : 70px;
+                font-size: 40px;
+                height: 70px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <section>
+
+        <div>
+            <input type="text" id="hr"> 
+            <h2>HH</h2>
+        </div>
+        <div>
+            <input type="text" id="min"> 
+            <h2>MM</h2>
+        </div>
+        <div>
+            <input type="text" id="sec"> 
+            <h2>Sec</h2>
+        </div>
+        <div>
+            <input type="text" id="msec"> 
+            <h2>M.sec</h2>
+        </div>
+    </section>
+
+    <script>
+        
+        function displayTime(){
+
+            let current = new Date();
+            let hour = current.getHours();
+            let min = current.getMinutes();
+            let sec = current.getSeconds();
+            let msec = current.getMilliseconds();
+
+            let input1 = document.getElementById("hr");
+            let input2 = document.getElementById("min");
+            let input3 = document.getElementById("sec");
+            let input4 = document.getElementById("msec");
+            
+            input1.value = hour;
+            input2.value = min;
+            input3.value = sec;
+            input4.value = msec;
+
+            
+        }
+
+        setInterval( displayTime, 10);
+
+    </script>
+</body>
+</html>
